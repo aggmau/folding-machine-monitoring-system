@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Dashboard</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+
+<body>
+<!--Navbar -->
+<nav class="navbar navbar-expand-sm bg-light navbar-light fixed-top">
+  <ul class="navbar-nav">
+    <li class="nav-item active">
+      <a class="nav-link" href="{{ url_for('dashboard') }}">Dashboard</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{ url_for('workstations') }}">Workstations</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{ url_for('orders') }}">Orders</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Inventory</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Forecast</a>
+    </li>
+  </ul>
+  <ul class="navbar-nav align-right">
+    <li class="nav-item">
+      <a class="nav-link" href="#">Account</a>
+    </li>
+    <li class="nav-item">
+      <!-- url_for('logout') -->
+      <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+    </li>
+  </ul>
+</nav>
+
+
+<!--Jumbotron -->
+<div class="jumbotron text-center">
+  <h1>Production Information and Control Centre</h1>
+  <p>Resize this responsive page to see the effect!</p> 
+</div>
+<!--Content-->
+<div class="container">
+  <!--Row of Cards-->
+  <div class="row">
+    <div class="col-sm-8">
+     <div class="card">
+      <div class="card-header bg-info text-white text-center"><h4>List of Task(s)</h4></div>
+      <div class="card-body">
+          <table class="table table-hover">
+            <thead>
+             <tr>
+                <td width="25%"><b>Order ID</b></td>
+                <td width="auto"><b>Progress</b></td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td width="25%"><a href="{{ url_for('order_details') }}" class="card-link">KAI123</a></td>
+                <td width="75%">
+                  <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" style="width:38.67%">38.67%</div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td width="25%"><a href="#" class="card-link">KAI124</a></td>
+                <td width="75%">
+                  <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" style="width:50%">50%</div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td width="25%"><a href="#" class="card-link">BMS011</a></td>
+                <td width="75%">
+                  <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" style="width:80%">80%</div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <a href="#" class="btn btn-success float-right" role="button">Show All Tasks</a>
+      </div>
+     </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card">
+          <div class="card-body">
+           <div class="card-title text-center"><h4>Stuff 1</h4></div>
+           <p class="card-text">Some example text. Some example text.</p>
+           <a href="#" class="card-link">Card link</a>
+           <a href="#" class="card-link">Another link</a>
+          </div>
+      </div>
+    </div>
+  </div>
+ <br>
+ <!--Another Card Rows -->
+ <div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-header bg-info text-center text-white"><h4>List of Order(s)</h4></div>
+        <div class="card-body">
+          <table class="table table-hover">
+            <thead>
+             <tr>
+                <td><b>Order ID</b></td>
+                <td><b>Status</b></td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+          <a href="#" class="btn btn-success float-right" role="button">Show All Orders</a>
+        <br>
+        </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-header bg-info text-center text-white"><h4>Inventory</h4></div>
+        <div class="card-body">
+         <p class="card-text">Some example text. Some example text.</p>
+         <a href="#" class="card-link">Card link</a>
+         <a href="#" class="card-link">Another link</a>
+        </div>
+    </div>
+  </div>
+ </div>
+
+  <!--Another Column-->
+  <br>
+  <div class="card-columns">
+    <div class="card">
+      <div class="card-header bg-info text-center text-white"><h4>Stuff 1</h4></div>
+        <div class="card-body">
+         <p class="card-text">Some example text. Some example text.</p>
+         <a href="#" class="card-link">Card link</a>
+         <a href="#" class="card-link">Another link</a>
+        </div>
+    </div>
+    <div class="card">
+      <div class="card-header bg-info text-center text-white"><h4>Stuff 1</h4></div>
+        <div class="card-body">
+         <p class="card-text">Some example text. Some example text.</p>
+         <a href="#" class="card-link">Card link</a>
+         <a href="#" class="card-link">Another link</a>
+        </div>
+    </div>
+    <div class="card">
+      <div class="card-header bg-info text-center text-white"><h4>Stuff 1</h4></div>
+        <div class="card-body">
+         <p class="card-text">Some example text. Some example text.</p>
+         <a href="#" class="card-link">Card link</a>
+         <a href="#" class="card-link">Another link</a>
+        </div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<footer>
+    <div class="row">
+    <img src="{{url_for('static',filename = '1.png')}}" class="mx-auto d-block" width="200"></div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		  <title>Login</title>
+		  <meta charset="utf-8">
+		  <meta name="viewport" content="width=device-width, initial-scale=1">
+		  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+		  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	</head>
+
+	<body>
+	<!--Navbar-->
+	<nav class="navbar navbar-expand-sm bg-light navbar-light sticky-top">
+		<a class="navbar-brand" href="#">Production Monitoring System</a>
+	</nav>
+
+	<!--Content-->
+	<div class="container-fluid">
+		<div class="row">	
+			<div class="col-sm-1" style="background-color:lightblue;"></div>
+			<div class="col-sm-6" style="background-color:white;"><br>
+				 <div class="card">
+					<div class="card-body">
+					<img src="{{url_for('static',filename = 'undraw_Login_re_4vu2.svg')}}"  class="mx-auto d-block" alt="Login" width="500" height="350">
+					</div>
+				  </div>
+			<br>
+			</div>
+			<div class="col-sm-4" style="background-color:white;"><br>
+				<div class="card" style="background-color:white;">
+					<div class="card-body">			
+						<h4>Login to Your Account</h4>
+						<br>
+						<form action="" class="was-validated" method="post">
+						<div class="form-group">
+							<input type="username" class="form-control" id="username" placeholder="Username" name="username" value="{{request.form.username }}" required>
+							<div class="valid-feedback"></div>
+    						<div class="invalid-feedback">Please fill out this field!</div>
+						</div>
+						<div class="form-group">
+							<input type="password" class="form-control" id="password" placeholder="Password" name="password" value="{{request.form.password }}" required>
+							<div class="valid-feedback"></div>
+    						<div class="invalid-feedback">Please fill out this field!</div>
+						</div>
+						<button type="submit" class="btn btn-primary" value="login">Login</button>
+						</form>
+						<br>
+						{% block content %}
+						{% with messages = get_flashed_messages() %}
+							{% if messages %}
+								{% for message in messages %}
+								<div class="alert alert-danger alert-dismissible fade show">
+									<button type="button" class="close" data-dismiss="alert">&times;</button>
+								    <strong>{{ message }} username or password.</strong><br>Please enter your valid credentials!
+								</div>
+								{% endfor %}
+							{% endif %}
+						{% endwith %}
+						{% endblock %}
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-1" style="background-color:lightblue;">
+			</div>
+		</div>
+	</div>
+	<nav class="navbar navbar-expand-sm bg-light justify-content-center fixed-bottom">
+	<img src="{{url_for('static',filename = '1.png')}}" class="mx-auto d-block" width="200"></div>
+	</nav>
+	</body>
+</html>
